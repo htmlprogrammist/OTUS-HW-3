@@ -32,7 +32,6 @@ final class GameButton: UIButton {
         
         self.configuration = configuration
         self.layer.cornerRadius = 16
-        self.translatesAutoresizingMaskIntoConstraints = false
     }
     
     required init?(coder: NSCoder) {

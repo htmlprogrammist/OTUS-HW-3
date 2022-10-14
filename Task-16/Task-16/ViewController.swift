@@ -60,27 +60,15 @@ class ViewController: UIViewController {
     
     private func setupView() {
         view.addSubview(timeLabel)
-//        view.addSubview(startButton)
-//        view.addSubview(stopButton)
         view.addSubview(buttonsStackView)
         
         NSLayoutConstraint.activate([
-//            timeLabel.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-//            timeLabel.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             timeLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             timeLabel.topAnchor.constraint(equalTo: view.layoutMarginsGuide.topAnchor, constant: view.frame.size.height * 0.1),
             
             buttonsStackView.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
             buttonsStackView.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
             buttonsStackView.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: view.frame.size.height * 0.05)
-            
-//            startButton.leadingAnchor.constraint(equalTo: view.layoutMarginsGuide.leadingAnchor),
-//            startButton.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 40),
-//            startButton.trailingAnchor.constraint(equalTo: stopButton.leadingAnchor, constant: view.layoutMargins.right / 2),
-//
-//            stopButton.leadingAnchor.constraint(equalTo: startButton.trailingAnchor, constant: view.layoutMargins.left / 2),
-//            stopButton.trailingAnchor.constraint(equalTo: view.layoutMarginsGuide.trailingAnchor),
-//            stopButton.topAnchor.constraint(equalTo: timeLabel.bottomAnchor, constant: 40),
         ])
     }
 }
