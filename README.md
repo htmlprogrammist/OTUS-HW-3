@@ -2,7 +2,7 @@
 
 По курсу OTUS "iOS Developer для Газпромбанка"
 
-- [ ] [16. Введение в UIKit, Interface Builder Basics, XIB, Storyaboard, Autolayout. Создаем простые экраны. Верстка UI с помощью кода, NSLayoutConstraints](16/)
+- [ ] [16. Введение в UIKit, Interface Builder Basics, XIB, Storyaboard, Autolayout. Создаем простые экраны. Верстка UI с помощью кода, NSLayoutConstraints](Task-16/)
 - [ ] [17. Навигация: Navigation Controllers, Segues, Tab Bar Controllers](17/)
 - [ ] [18. Отображение списочных данных: Table View](18/)
 - [ ] [19. Отображение списочных данных:Collection View](19/)
