@@ -17,17 +17,21 @@ final class GameButton: UIButton {
     
     init(mode: GameButtonMode) {
         super.init(frame: .zero)
+        var configuration = UIButton.Configuration.filled()
         
         switch mode {
         case .start:
-            self.setTitle("Старт", for: .normal)
+            configuration.title = "Старт"
             self.backgroundColor = .systemGreen
+            self.tintColor = .systemGreen
         case .stop:
-            self.setTitle("Стоп", for: .normal)
+            configuration.title = "Стоп"
             self.backgroundColor = .systemRed
+            self.tintColor = .systemRed
         }
         
-        self.tintColor = .white
+        self.configuration = configuration
+        self.layer.cornerRadius = 16
         self.translatesAutoresizingMaskIntoConstraints = false
     }
     
