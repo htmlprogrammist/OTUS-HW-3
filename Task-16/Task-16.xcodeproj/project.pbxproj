@@ -13,6 +13,7 @@
 		F006CF1E28F881A90086A5F1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F006CF1C28F881A90086A5F1 /* Main.storyboard */; };
 		F006CF2028F881AE0086A5F1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F006CF1F28F881AE0086A5F1 /* Assets.xcassets */; };
 		F006CF2328F881AE0086A5F1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F006CF2128F881AE0086A5F1 /* LaunchScreen.storyboard */; };
+		F006CF2C28F888190086A5F1 /* GameButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F006CF2B28F888190086A5F1 /* GameButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,8 @@
 		F006CF1F28F881AE0086A5F1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F006CF2228F881AE0086A5F1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F006CF2428F881AE0086A5F1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F006CF2A28F883D30086A5F1 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F006CF2B28F888190086A5F1 /* GameButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +43,7 @@
 		F006CF0A28F881A80086A5F1 = {
 			isa = PBXGroup;
 			children = (
+				F006CF2A28F883D30086A5F1 /* README.md */,
 				F006CF1528F881A80086A5F1 /* Task-16 */,
 				F006CF1428F881A80086A5F1 /* Products */,
 			);
@@ -63,6 +67,7 @@
 				F006CF1F28F881AE0086A5F1 /* Assets.xcassets */,
 				F006CF2128F881AE0086A5F1 /* LaunchScreen.storyboard */,
 				F006CF2428F881AE0086A5F1 /* Info.plist */,
+				F006CF2B28F888190086A5F1 /* GameButton.swift */,
 			);
 			path = "Task-16";
 			sourceTree = "<group>";
@@ -139,6 +144,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F006CF1B28F881A80086A5F1 /* ViewController.swift in Sources */,
+				F006CF2C28F888190086A5F1 /* GameButton.swift in Sources */,
 				F006CF1728F881A80086A5F1 /* AppDelegate.swift in Sources */,
 				F006CF1928F881A80086A5F1 /* SceneDelegate.swift in Sources */,
 			);
