@@ -28,10 +28,11 @@ final class GameButton: UIButton {
             configuration.title = "Стоп"
             self.backgroundColor = .systemRed
             self.tintColor = .systemRed
+            self.isEnabled = false
         }
-        
-        self.configuration = configuration
+        configuration.cornerStyle = .large
         self.layer.cornerRadius = 16
+        self.configuration = configuration
     }
     
     required init?(coder: NSCoder) {
