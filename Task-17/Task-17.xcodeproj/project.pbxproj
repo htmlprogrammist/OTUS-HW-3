@@ -9,21 +9,30 @@
 /* Begin PBXBuildFile section */
 		F0116A2828FAC72C00EB5C57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0116A2728FAC72C00EB5C57 /* AppDelegate.swift */; };
 		F0116A2A28FAC72C00EB5C57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0116A2928FAC72C00EB5C57 /* SceneDelegate.swift */; };
-		F0116A2C28FAC72C00EB5C57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0116A2B28FAC72C00EB5C57 /* ViewController.swift */; };
+		F0116A2C28FAC72C00EB5C57 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0116A2B28FAC72C00EB5C57 /* FirstViewController.swift */; };
 		F0116A2F28FAC72C00EB5C57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0116A2D28FAC72C00EB5C57 /* Main.storyboard */; };
 		F0116A3128FAC73000EB5C57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0116A3028FAC73000EB5C57 /* Assets.xcassets */; };
 		F0116A3428FAC73000EB5C57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0116A3228FAC73000EB5C57 /* LaunchScreen.storyboard */; };
+		F0116A3D28FAC77E00EB5C57 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0116A3C28FAC77E00EB5C57 /* MainTabBarController.swift */; };
+		F0116A3F28FAC7B700EB5C57 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0116A3E28FAC7B700EB5C57 /* SecondViewController.swift */; };
+		F0116A4228FACAD600EB5C57 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0116A4128FACAD600EB5C57 /* ThirdViewController.swift */; };
+		F0116A4428FACADE00EB5C57 /* FourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0116A4328FACADE00EB5C57 /* FourthViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		F0116A2428FAC72C00EB5C57 /* Task-17.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task-17.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0116A2728FAC72C00EB5C57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0116A2928FAC72C00EB5C57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F0116A2B28FAC72C00EB5C57 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F0116A2B28FAC72C00EB5C57 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		F0116A2E28FAC72C00EB5C57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F0116A3028FAC73000EB5C57 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F0116A3328FAC73000EB5C57 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F0116A3528FAC73000EB5C57 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F0116A3C28FAC77E00EB5C57 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		F0116A3E28FAC7B700EB5C57 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		F0116A4028FAC87500EB5C57 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		F0116A4128FACAD600EB5C57 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		F0116A4328FACADE00EB5C57 /* FourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FourthViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +49,7 @@
 		F0116A1B28FAC72C00EB5C57 = {
 			isa = PBXGroup;
 			children = (
+				F0116A4028FAC87500EB5C57 /* README.md */,
 				F0116A2628FAC72C00EB5C57 /* Task-17 */,
 				F0116A2528FAC72C00EB5C57 /* Products */,
 			);
@@ -58,13 +68,25 @@
 			children = (
 				F0116A2728FAC72C00EB5C57 /* AppDelegate.swift */,
 				F0116A2928FAC72C00EB5C57 /* SceneDelegate.swift */,
-				F0116A2B28FAC72C00EB5C57 /* ViewController.swift */,
+				F0116A3B28FAC77200EB5C57 /* Controllers */,
 				F0116A2D28FAC72C00EB5C57 /* Main.storyboard */,
 				F0116A3028FAC73000EB5C57 /* Assets.xcassets */,
 				F0116A3228FAC73000EB5C57 /* LaunchScreen.storyboard */,
 				F0116A3528FAC73000EB5C57 /* Info.plist */,
 			);
 			path = "Task-17";
+			sourceTree = "<group>";
+		};
+		F0116A3B28FAC77200EB5C57 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F0116A2B28FAC72C00EB5C57 /* FirstViewController.swift */,
+				F0116A3C28FAC77E00EB5C57 /* MainTabBarController.swift */,
+				F0116A3E28FAC7B700EB5C57 /* SecondViewController.swift */,
+				F0116A4128FACAD600EB5C57 /* ThirdViewController.swift */,
+				F0116A4328FACADE00EB5C57 /* FourthViewController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,8 +160,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F0116A2C28FAC72C00EB5C57 /* ViewController.swift in Sources */,
+				F0116A2C28FAC72C00EB5C57 /* FirstViewController.swift in Sources */,
 				F0116A2828FAC72C00EB5C57 /* AppDelegate.swift in Sources */,
+				F0116A3D28FAC77E00EB5C57 /* MainTabBarController.swift in Sources */,
+				F0116A4428FACADE00EB5C57 /* FourthViewController.swift in Sources */,
+				F0116A3F28FAC7B700EB5C57 /* SecondViewController.swift in Sources */,
+				F0116A4228FACAD600EB5C57 /* ThirdViewController.swift in Sources */,
 				F0116A2A28FAC72C00EB5C57 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
