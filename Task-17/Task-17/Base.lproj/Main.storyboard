@@ -15,14 +15,28 @@
                     <view key="view" contentMode="scaleToFill" id="2r1-oY-5kE" customClass="Second">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LyF-Cq-Son">
+                                <rect key="frame" x="160.5" y="432.5" width="93.5" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Go Further"/>
+                                <connections>
+                                    <segue destination="DL0-zA-Xgi" kind="presentation" id="QzE-PK-XsH"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="Uh8-NM-j80"/>
                         <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                        <constraints>
+                            <constraint firstItem="LyF-Cq-Son" firstAttribute="centerX" secondItem="2r1-oY-5kE" secondAttribute="centerX" id="6bY-r9-xXw"/>
+                            <constraint firstItem="LyF-Cq-Son" firstAttribute="centerY" secondItem="2r1-oY-5kE" secondAttribute="centerY" id="FJM-4d-Htf"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Second" image="minus.plus.batteryblock.fill" catalog="system" id="xk2-kJ-EiA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ykg-fs-L2r" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-585" y="238"/>
+            <point key="canvasLocation" x="-586" y="309"/>
         </scene>
         <!--First-->
         <scene sceneID="D11-pC-U7A">
@@ -31,14 +45,141 @@
                     <view key="view" contentMode="scaleToFill" id="bVL-LL-zeq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zMP-EP-4ub">
+                                <rect key="frame" x="168.5" y="432.5" width="77" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Go Next"/>
+                                <connections>
+                                    <segue destination="DdY-I3-6yR" kind="showDetail" id="sD0-9u-zcC"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="lzn-fy-5sQ"/>
                         <color key="backgroundColor" systemColor="systemCyanColor"/>
+                        <constraints>
+                            <constraint firstItem="zMP-EP-4ub" firstAttribute="centerY" secondItem="bVL-LL-zeq" secondAttribute="centerY" id="2cT-Te-UGG"/>
+                            <constraint firstItem="zMP-EP-4ub" firstAttribute="centerX" secondItem="bVL-LL-zeq" secondAttribute="centerX" id="ume-L6-HQi"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="First" image="lock.icloud.fill" catalog="system" id="og8-aE-jxL"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="20E-ZK-Nw6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-585" y="-370"/>
+        </scene>
+        <!--Navigation 1-->
+        <scene sceneID="5LQ-AU-ohK">
+            <objects>
+                <navigationController modalPresentationStyle="fullScreen" id="DdY-I3-6yR" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Navigation 1" largeTitleDisplayMode="always" id="9mM-sm-sLT"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="SV0-so-E8T">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BKl-5i-zAp" kind="relationship" relationship="rootViewController" id="fgK-uf-vtx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3XL-kW-fYf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="203" y="-380"/>
+        </scene>
+        <!--Third View Controller-->
+        <scene sceneID="FnE-gU-a8g">
+            <objects>
+                <viewController id="BKl-5i-zAp" customClass="ThirdViewController" customModule="Task_17" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ThI-jq-Ios" customClass="Third">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JvA-67-p4x">
+                                <rect key="frame" x="168" y="405.5" width="78" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Go Back"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="BKl-5i-zAp" eventType="touchUpInside" id="chT-Dr-1yt"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kkh-kV-Fgi">
+                                <rect key="frame" x="160" y="334.5" width="94" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Go Further"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="EH1-Is-yR8"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                        <constraints>
+                            <constraint firstItem="JvA-67-p4x" firstAttribute="centerY" secondItem="ThI-jq-Ios" secondAttribute="centerY" id="APg-Ia-5W3"/>
+                            <constraint firstItem="JvA-67-p4x" firstAttribute="top" secondItem="Kkh-kV-Fgi" secondAttribute="bottom" constant="40" id="Ep2-Gi-o9K"/>
+                            <constraint firstItem="Kkh-kV-Fgi" firstAttribute="centerX" secondItem="ThI-jq-Ios" secondAttribute="centerX" id="Rxf-J7-Jvy"/>
+                            <constraint firstItem="JvA-67-p4x" firstAttribute="centerX" secondItem="ThI-jq-Ios" secondAttribute="centerX" id="UJ2-oi-xeQ"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="cQP-sl-aPa"/>
+                    <connections>
+                        <outlet property="backButton" destination="JvA-67-p4x" id="zDM-iC-kA2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="17e-4w-e0c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1034" y="-374"/>
+        </scene>
+        <!--Fourth View Controller-->
+        <scene sceneID="yBj-xV-LID">
+            <objects>
+                <viewController id="Bf4-Y4-Jzh" customClass="FourthViewController" customModule="Task_17" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qyr-6U-Bvl">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="99K-7O-3xM">
+                                <rect key="frame" x="168" y="405.5" width="78" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Go Back"/>
+                                <connections>
+                                    <action selector="backButtonTapped:" destination="Bf4-Y4-Jzh" eventType="touchUpInside" id="Q2j-mP-Vuc"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KEz-Ox-Yy8">
+                                <rect key="frame" x="160" y="334.5" width="94" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Go Further"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="dhv-6c-OKJ"/>
+                        <color key="backgroundColor" systemColor="systemOrangeColor"/>
+                        <constraints>
+                            <constraint firstItem="KEz-Ox-Yy8" firstAttribute="centerX" secondItem="qyr-6U-Bvl" secondAttribute="centerX" id="7jE-6P-wca"/>
+                            <constraint firstItem="99K-7O-3xM" firstAttribute="top" secondItem="KEz-Ox-Yy8" secondAttribute="bottom" constant="40" id="MDQ-Y4-PxE"/>
+                            <constraint firstItem="99K-7O-3xM" firstAttribute="centerX" secondItem="qyr-6U-Bvl" secondAttribute="centerX" id="eaW-aj-fPe"/>
+                            <constraint firstItem="99K-7O-3xM" firstAttribute="centerY" secondItem="qyr-6U-Bvl" secondAttribute="centerY" id="qWA-Y0-dMK"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="ntU-IP-xnj"/>
+                    <connections>
+                        <outlet property="backButton" destination="99K-7O-3xM" id="qXn-Dh-EoE"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ngi-EC-Khx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1033" y="309"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GMW-YR-nhC">
+            <objects>
+                <navigationController id="DL0-zA-Xgi" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="1ls-2w-flg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="108"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Bf4-Y4-Jzh" kind="relationship" relationship="rootViewController" id="Obd-aB-a1G"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gvy-mm-zfv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="203" y="309"/>
         </scene>
         <!--Main Tab Bar Controller-->
         <scene sceneID="P1M-Zd-CBA">
@@ -64,6 +205,12 @@
         <image name="minus.plus.batteryblock.fill" catalog="system" width="128" height="93"/>
         <systemColor name="systemCyanColor">
             <color red="0.19607843137254902" green="0.67843137254901964" blue="0.90196078431372551" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPurpleColor">
             <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

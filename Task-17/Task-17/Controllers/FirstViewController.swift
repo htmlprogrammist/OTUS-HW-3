@@ -18,24 +18,24 @@ class FirstViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        print(String(describing: self), "viewWillAppear")
+        print("viewWillAppear", String(describing: self))
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        print(String(describing: self), "viewWillAppear")
+        print("viewDidAppear", String(describing: self))
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        print(String(describing: self), "viewWillAppear")
+        print("viewWillDisappear", String(describing: self))
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         
-        print(String(describing: self), "viewWillAppear")
+        print("viewDidDisappear", String(describing: self))
     }
 }
