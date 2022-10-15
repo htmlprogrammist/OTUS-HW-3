@@ -17,21 +17,21 @@ final class GameButton: UIButton {
     
     init(mode: GameButtonMode) {
         super.init(frame: .zero)
+        
         var configuration = UIButton.Configuration.filled()
         
         switch mode {
         case .start:
             configuration.title = "Старт"
-            self.backgroundColor = .systemGreen
             self.tintColor = .systemGreen
         case .stop:
             configuration.title = "Стоп"
-            self.backgroundColor = .systemRed
             self.tintColor = .systemRed
             self.isEnabled = false
         }
-        configuration.cornerStyle = .large
-        self.layer.cornerRadius = 16
+        
+        configuration.buttonSize = .medium
+        configuration.cornerStyle = .capsule
         self.configuration = configuration
     }
     
