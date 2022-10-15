@@ -21,7 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     func sceneDidBecomeActive(_ scene: UIScene) {
         if !firstStart {
-            if let viewController = window?.rootViewController as? ViewController {
+            if let viewController = window?.rootViewController as? ViewController,
+               let _ = viewController.timer { // если таймер до выключения существовал, то
                 viewController.startButtonTapped()
             }
         }
