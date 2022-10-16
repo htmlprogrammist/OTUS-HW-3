@@ -9,12 +9,9 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    // MARK: - Public Properties
-    
-    public var timer: Timer?
-    
     // MARK: - Private Properties
     
+    private var timer: Timer?
     private var elapsedTime: TimeInterval = 0
     
     private let timeLabel: UILabel = {

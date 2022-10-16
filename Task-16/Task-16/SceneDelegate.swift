@@ -20,13 +20,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
     
     func sceneDidBecomeActive(_ scene: UIScene) {
-        if !firstStart {
-            if let viewController = window?.rootViewController as? ViewController,
-               let _ = viewController.timer { // если таймер до выключения существовал, то
-                viewController.startButtonTapped()
-            }
+        if let viewController = window?.rootViewController as? ViewController, !firstStart {
+            viewController.startButtonTapped()
         }
-        firstStart = false
     }
     
     func sceneDidEnterBackground(_ scene: UIScene) {
