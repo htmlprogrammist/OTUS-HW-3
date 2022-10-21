@@ -13,6 +13,8 @@
 		F0CBD34729029F9000498ED2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F0CBD34529029F9000498ED2 /* LaunchScreen.storyboard */; };
 		F0DF74902902A2D300F6993B /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DF748E2902A2D300F6993B /* ListViewController.swift */; };
 		F0DF74912902A2D300F6993B /* MyTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DF748F2902A2D300F6993B /* MyTableViewCell.swift */; };
+		F0DF74932902A46900F6993B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DF74922902A46900F6993B /* User.swift */; };
+		F0DF74952902A49D00F6993B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0DF74942902A49D00F6993B /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +27,8 @@
 		F0CBD34E29029FB100498ED2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		F0DF748E2902A2D300F6993B /* ListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		F0DF748F2902A2D300F6993B /* MyTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyTableViewCell.swift; sourceTree = "<group>"; };
+		F0DF74922902A46900F6993B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F0DF74942902A49D00F6993B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,8 @@
 				F0CBD34329029F9000498ED2 /* Assets.xcassets */,
 				F0CBD34529029F9000498ED2 /* LaunchScreen.storyboard */,
 				F0CBD34829029F9000498ED2 /* Info.plist */,
+				F0DF74922902A46900F6993B /* User.swift */,
+				F0DF74942902A49D00F6993B /* DetailViewController.swift */,
 			);
 			path = "Task-18";
 			sourceTree = "<group>";
@@ -142,6 +148,8 @@
 				F0CBD33B29029F8E00498ED2 /* AppDelegate.swift in Sources */,
 				F0DF74912902A2D300F6993B /* MyTableViewCell.swift in Sources */,
 				F0CBD33D29029F8E00498ED2 /* SceneDelegate.swift in Sources */,
+				F0DF74952902A49D00F6993B /* DetailViewController.swift in Sources */,
+				F0DF74932902A46900F6993B /* User.swift in Sources */,
 				F0DF74902902A2D300F6993B /* ListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

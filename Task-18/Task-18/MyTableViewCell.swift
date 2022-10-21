@@ -13,6 +13,14 @@ final class MyTableViewCell: UITableViewCell {
     
     static let identifier = "MyTableViewCell"
     
+    // MARK: - Private Properties
+    
+    private let mainLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.systemFont(ofSize: 18, weight: .light)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     // MARK: - Init
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -27,13 +35,21 @@ final class MyTableViewCell: UITableViewCell {
     
     // MARK: - Public Methods
     
-    public func configure() {
-        
+    public func configure(with user: User) {
+        mainLabel.text = user.name
     }
     
     // MARK: - Private Methods
     
     private func setupView() {
-        accessoryType = .checkmark
+        accessoryType = .disclosureIndicator
+        
+        contentView.addSubview(mainLabel)
+        
+        NSLayoutConstraint.activate([
+            mainLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            mainLabel.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+            mainLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+        ])
     }
 }
