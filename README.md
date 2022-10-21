@@ -4,7 +4,7 @@
 
 - [x] [16. Введение в UIKit, Interface Builder Basics, XIB, Storyaboard, Autolayout. Создаем простые экраны. Верстка UI с помощью кода, NSLayoutConstraints](Task-16/)
 - [ ] [17. Навигация: Navigation Controllers, Segues, Tab Bar Controllers](17/)
-- [ ] [18. Отображение списочных данных: Table View](18/)
+- [x] [18. Отображение списочных данных: Table View](Task-18/)
 - [ ] [19. Отображение списочных данных:Collection View](19/)
 - [ ] [20. Анимация: CoreAnimation, custom transition](20/)
 - [ ] [21. Архитектурные паттерны iOS: MVC, MVP, MVVM, Clean(VIPER)](21/)
