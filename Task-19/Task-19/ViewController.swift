@@ -23,7 +23,7 @@ final class ViewController: UIViewController {
                          Flag(name: "Испания", image: UIImage(named: "es")!)]
     
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createThreeColumnFlowLayout(in: view))
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createTwoColumnFlowLayout())
         collectionView.register(MyCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.delegate = self
         collectionView.dataSource = self
@@ -52,7 +52,7 @@ final class ViewController: UIViewController {
         ])
     }
     
-    func createThreeColumnFlowLayout(in view: UIView) -> UICollectionViewFlowLayout {
+    func createTwoColumnFlowLayout() -> UICollectionViewFlowLayout {
         let width = view.bounds.width
         let availableWidth = width - (view.layoutMargins.left * 2) - (view.layoutMargins.right * 2)
         let itemWidth = availableWidth / 3
