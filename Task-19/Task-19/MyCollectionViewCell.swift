@@ -12,22 +12,16 @@ final class MyCollectionViewCell: UICollectionViewCell {
     private let imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     private let mainLabel: UILabel = {
         let label = UILabel()
+        label.textAlignment = .center
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.translatesAutoresizingMaskIntoConstraints = false
         return label
-    }()
-    
-    private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [imageView, mainLabel])
-        stackView.axis = .vertical
-        stackView.spacing = contentView.layoutMargins.left
-        stackView.alignment = .center
-        stackView.translatesAutoresizingMaskIntoConstraints = false
-        return stackView
     }()
     
     // MARK: - Init
@@ -48,13 +42,18 @@ final class MyCollectionViewCell: UICollectionViewCell {
     }
     
     private func setupView() {
-        contentView.addSubview(stackView)
+        contentView.addSubview(imageView)
+        contentView.addSubview(mainLabel)
         
         NSLayoutConstraint.activate([
-            stackView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
-            stackView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
-            stackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            stackView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
+            imageView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            imageView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+            imageView.heightAnchor.constraint(equalToConstant: 50),
+            
+            mainLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: contentView.layoutMargins.top),
+            mainLabel.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            mainLabel.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
         ])
     }
 }

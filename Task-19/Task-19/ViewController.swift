@@ -38,6 +38,9 @@ final class ViewController: UIViewController {
     }
     
     func setupView() {
+        navigationController?.navigationBar.prefersLargeTitles = true
+        title = "Флаги"
+        
         view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
         
@@ -55,7 +58,6 @@ final class ViewController: UIViewController {
         let itemWidth = availableWidth / 3
         
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: view.layoutMargins.left, left: view.layoutMargins.left, bottom: view.layoutMargins.left, right: view.layoutMargins.left)
         flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
         
         return flowLayout
