@@ -9,9 +9,22 @@ import UIKit
 
 final class ViewController: UIViewController {
     
+    private let flags = [Flag(name: "Дания", image: UIImage(named: "dk")!),
+                         Flag(name: "Аргентина", image: UIImage(named: "ar")!),
+                         Flag(name: "Бельгия", image: UIImage(named: "be")!),
+                         Flag(name: "Австрия", image: UIImage(named: "at")!),
+                         Flag(name: "Австралия", image: UIImage(named: "au")!),
+                         Flag(name: "Болгария", image: UIImage(named: "bg")!),
+                         Flag(name: "Бахрейн", image: UIImage(named: "bh")!),
+                         Flag(name: "Бразилия", image: UIImage(named: "br")!),
+                         Flag(name: "Швейцария", image: UIImage(named: "ch")!),
+                         Flag(name: "Чехия", image: UIImage(named: "cz")!),
+                         Flag(name: "Германия", image: UIImage(named: "de")!),
+                         Flag(name: "Испания", image: UIImage(named: "es")!)]
+    
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createThreeColumnFlowLayout(in: view))
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createThreeColumnFlowLayout(in: view))
+        collectionView.register(MyCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -25,6 +38,7 @@ final class ViewController: UIViewController {
     }
     
     func setupView() {
+        view.backgroundColor = .systemBackground
         view.addSubview(collectionView)
         
         NSLayoutConstraint.activate([
@@ -37,13 +51,11 @@ final class ViewController: UIViewController {
     
     func createThreeColumnFlowLayout(in view: UIView) -> UICollectionViewFlowLayout {
         let width = view.bounds.width
-        let padding: CGFloat = 12
-        let minimumItemSpacing: CGFloat = 10
-        let availableWidth = width - (padding * 2) - (minimumItemSpacing * 2)
+        let availableWidth = width - (view.layoutMargins.left * 2) - (view.layoutMargins.right * 2)
         let itemWidth = availableWidth / 3
         
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.sectionInset = UIEdgeInsets(top: padding, left: padding, bottom: padding, right: padding)
+        flowLayout.sectionInset = UIEdgeInsets(top: view.layoutMargins.left, left: view.layoutMargins.left, bottom: view.layoutMargins.left, right: view.layoutMargins.left)
         flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
         
         return flowLayout
@@ -53,11 +65,12 @@ final class ViewController: UIViewController {
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        return flags.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? MyCollectionViewCell else { fatalError("Fatal error!")}
+        cell.configure(with: flags[indexPath.row])
         return cell
     }
 }
