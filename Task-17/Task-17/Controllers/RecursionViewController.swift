@@ -10,7 +10,7 @@ import UIKit
 /// Вьюконтроллер, который используется в третьем и четвёртом, когда мы делаем дальнейший переход
 class RecursionViewController: UIViewController {
     
-    private let furtherButton: UIButton = {
+    private lazy var furtherButton: UIButton = {
         var configuration = UIButton.Configuration.filled()
         configuration.title = "Go Further"
         let button = UIButton(configuration: configuration)
@@ -18,7 +18,7 @@ class RecursionViewController: UIViewController {
         return button
     }()
     
-    private let backButton: UIButton = {
+    private lazy var backButton: UIButton = {
         var configuration = UIButton.Configuration.filled()
         configuration.title = "Go Back"
         let button = UIButton(configuration: configuration)
@@ -26,8 +26,16 @@ class RecursionViewController: UIViewController {
         return button
     }()
     
+    private lazy var resetButton: UIButton = {
+        var configuration = UIButton.Configuration.filled()
+        configuration.title = "Go Root"
+        let button = UIButton(configuration: configuration)
+        button.addTarget(self, action: #selector(resetButtonTapped), for: .touchUpInside)
+        return button
+    }()
+    
     private func setupView() {
-        let stackView = UIStackView(arrangedSubviews: [furtherButton, backButton])
+        let stackView = UIStackView(arrangedSubviews: [furtherButton, backButton, resetButton])
         stackView.spacing = 20
         stackView.axis = .vertical
         stackView.alignment = .center
@@ -49,6 +57,10 @@ class RecursionViewController: UIViewController {
     }
     
     @objc private func backButtonTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc private func resetButtonTapped() {
         navigationController?.popToRootViewController(animated: true)
     }
     
