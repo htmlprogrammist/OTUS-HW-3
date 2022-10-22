@@ -51,7 +51,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Go Next"/>
                                 <connections>
-                                    <segue destination="DdY-I3-6yR" kind="showDetail" id="sD0-9u-zcC"/>
+                                    <segue destination="DdY-I3-6yR" kind="show" id="sD0-9u-zcC"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -105,6 +105,9 @@
                                 <rect key="frame" x="160" y="334.5" width="94" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Go Further"/>
+                                <connections>
+                                    <action selector="furtherButtonTapped:" destination="BKl-5i-zAp" eventType="touchUpInside" id="qN2-CY-jGC"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="EH1-Is-yR8"/>
@@ -119,6 +122,7 @@
                     <navigationItem key="navigationItem" id="cQP-sl-aPa"/>
                     <connections>
                         <outlet property="backButton" destination="JvA-67-p4x" id="zDM-iC-kA2"/>
+                        <outlet property="furtherButton" destination="Kkh-kV-Fgi" id="bSS-6Y-oze"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="17e-4w-e0c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -145,6 +149,9 @@
                                 <rect key="frame" x="160" y="334.5" width="94" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Go Further"/>
+                                <connections>
+                                    <action selector="furtherButtonTapped:" destination="Bf4-Y4-Jzh" eventType="touchUpInside" id="MK0-oZ-LQU"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dhv-6c-OKJ"/>
@@ -159,6 +166,7 @@
                     <navigationItem key="navigationItem" id="ntU-IP-xnj"/>
                     <connections>
                         <outlet property="backButton" destination="99K-7O-3xM" id="qXn-Dh-EoE"/>
+                        <outlet property="furtherButton" destination="KEz-Ox-Yy8" id="w4Z-tU-Kso"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ngi-EC-Khx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

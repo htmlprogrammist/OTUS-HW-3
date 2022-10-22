@@ -10,17 +10,23 @@ import UIKit
 class FourthViewController: UIViewController {
     
     @IBOutlet weak var backButton: UIButton!
+    @IBOutlet weak var furtherButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .systemRed
+        print("viewDidLoad", String(describing: self))
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
         dismiss(animated: true) {
             print("dismiss", String(describing: self))
         }
+    }
+    @IBAction func furtherButtonTapped(_ sender: Any) {
+        let vc = FourthViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
