@@ -9,8 +9,8 @@ import UIKit
 
 class FourthViewController: UIViewController {
     
-    @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var furtherButton: UIButton!
+    @IBOutlet weak var backButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,13 +18,13 @@ class FourthViewController: UIViewController {
         print("viewDidLoad", String(describing: self))
     }
     
-    @IBAction func backButtonTapped(_ sender: Any) {
-        navigationController?.popToRootViewController(animated: true)
-    }
-    
     @IBAction func furtherButtonTapped(_ sender: Any) {
         let vc = RecursionViewController()
         navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {

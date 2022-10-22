@@ -7,6 +7,7 @@
 
 import UIKit
 
+/// Вьюконтроллер, который используется в третьем и четвёртом, когда мы делаем дальнейший переход
 class RecursionViewController: UIViewController {
     
     private let furtherButton: UIButton = {

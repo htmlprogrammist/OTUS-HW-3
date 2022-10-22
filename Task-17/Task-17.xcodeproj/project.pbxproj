@@ -82,8 +82,8 @@
 		F0116A3B28FAC77200EB5C57 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F0116A2B28FAC72C00EB5C57 /* FirstViewController.swift */,
 				F0116A3C28FAC77E00EB5C57 /* MainTabBarController.swift */,
+				F0116A2B28FAC72C00EB5C57 /* FirstViewController.swift */,
 				F0116A3E28FAC7B700EB5C57 /* SecondViewController.swift */,
 				F0116A4128FACAD600EB5C57 /* ThirdViewController.swift */,
 				F0116A4328FACADE00EB5C57 /* FourthViewController.swift */,
