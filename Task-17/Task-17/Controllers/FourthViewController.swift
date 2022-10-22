@@ -15,17 +15,15 @@ class FourthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .systemRed
         print("viewDidLoad", String(describing: self))
     }
     
     @IBAction func backButtonTapped(_ sender: Any) {
-        dismiss(animated: true) {
-            print("dismiss", String(describing: self))
-        }
+        navigationController?.popToRootViewController(animated: true)
     }
+    
     @IBAction func furtherButtonTapped(_ sender: Any) {
-        let vc = FourthViewController()
+        let vc = RecursionViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
