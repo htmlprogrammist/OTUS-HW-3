@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F06AC20429070188002925E8 /* MyCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06AC20329070188002925E8 /* MyCollectionView.swift */; };
 		F094AD9B2904AAA300A42538 /* MyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F094AD992904AAA300A42538 /* MyCollectionViewCell.swift */; };
 		F094AD9C2904AAA300A42538 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = F094AD9A2904AAA300A42538 /* Flag.swift */; };
 		F0E04CED2904A642008043A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0E04CEC2904A642008043A4 /* AppDelegate.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F06AC20329070188002925E8 /* MyCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCollectionView.swift; sourceTree = "<group>"; };
 		F094AD992904AAA300A42538 /* MyCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCollectionViewCell.swift; sourceTree = "<group>"; };
 		F094AD9A2904AAA300A42538 /* Flag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
 		F0E04CE92904A642008043A4 /* Task-19.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task-19.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -68,6 +70,7 @@
 				F0E04CF52904A645008043A4 /* Assets.xcassets */,
 				F0E04CF72904A645008043A4 /* LaunchScreen.storyboard */,
 				F0E04CFA2904A645008043A4 /* Info.plist */,
+				F06AC20329070188002925E8 /* MyCollectionView.swift */,
 			);
 			path = "Task-19";
 			sourceTree = "<group>";
@@ -144,6 +147,7 @@
 			files = (
 				F0E04CF12904A642008043A4 /* ViewController.swift in Sources */,
 				F0E04CED2904A642008043A4 /* AppDelegate.swift in Sources */,
+				F06AC20429070188002925E8 /* MyCollectionView.swift in Sources */,
 				F094AD9C2904AAA300A42538 /* Flag.swift in Sources */,
 				F094AD9B2904AAA300A42538 /* MyCollectionViewCell.swift in Sources */,
 				F0E04CEF2904A642008043A4 /* SceneDelegate.swift in Sources */,

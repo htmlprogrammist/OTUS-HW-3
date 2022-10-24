@@ -23,10 +23,8 @@ final class ViewController: UIViewController {
                          Flag(name: "Испания", image: UIImage(named: "es")!)]
     
     private lazy var collectionView: UICollectionView = {
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: createTwoColumnFlowLayout())
+        let collectionView = MyCollectionView(data: flags, width: view.frame.size.width)
         collectionView.register(MyCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
-        collectionView.delegate = self
-        collectionView.dataSource = self
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
@@ -50,29 +48,5 @@ final class ViewController: UIViewController {
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
-    }
-    
-    func createTwoColumnFlowLayout() -> UICollectionViewFlowLayout {
-        let width = view.bounds.width
-        let availableWidth = width - (view.layoutMargins.left * 2) - (view.layoutMargins.right * 2)
-        let itemWidth = availableWidth / 3
-        
-        let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
-        
-        return flowLayout
-    }
-}
-
-extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return flags.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? MyCollectionViewCell else { fatalError("Fatal error!")}
-        cell.configure(with: flags[indexPath.row])
-        return cell
     }
 }
