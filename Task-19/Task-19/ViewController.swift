@@ -22,8 +22,12 @@ final class ViewController: UIViewController {
                          Flag(name: "Германия", image: UIImage(named: "de")!),
                          Flag(name: "Испания", image: UIImage(named: "es")!)]
     
+    private lazy var helper = Helper(data: flags)
+    
     private lazy var collectionView: UICollectionView = {
-        let collectionView = MyCollectionView(data: flags, width: view.frame.size.width)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: setupFlowLayout())
+        collectionView.delegate = helper
+        collectionView.dataSource = helper
         collectionView.register(MyCollectionViewCell.self, forCellWithReuseIdentifier: "cell")
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
@@ -33,6 +37,14 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
+    }
+    
+    private func setupFlowLayout() -> UICollectionViewLayout {
+        let availableWidth = view.frame.size.width - (view.layoutMargins.left * 2) - (view.layoutMargins.right * 2)
+        let itemWidth = availableWidth / 3
+        let flowLayout = UICollectionViewFlowLayout()
+        flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth + 40)
+        return flowLayout
     }
     
     func setupView() {
