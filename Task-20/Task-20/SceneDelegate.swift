@@ -21,6 +21,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let assembly = RocketListAssembly.assemble(with: context)
         
         window.rootViewController = assembly.viewController
+        window.overrideUserInterfaceStyle = .light
         window.makeKeyAndVisible()
         self.window = window
     }

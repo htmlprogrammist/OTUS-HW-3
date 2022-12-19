@@ -13,4 +13,9 @@ final class RocketListRouter {
 }
 
 extension RocketListRouter: RocketListRouterInput {
+    func openRocketDetailsModule(for rocket: Rocket) {
+        let context = RocketDetailsContext(rocket: rocket)
+        let assembly = RocketDetailsAssembly.assemble(with: context)
+        viewController?.navigationController?.pushViewController(assembly.viewController, animated: true)
+    }
 }

@@ -34,6 +34,7 @@ protocol RocketListInteractorOutput: AnyObject {
 }
 
 protocol RocketListRouterInput: AnyObject {
+    func openRocketDetailsModule(for rocket: Rocket)
 }
 
 protocol RocketListRouterOutput: AnyObject {

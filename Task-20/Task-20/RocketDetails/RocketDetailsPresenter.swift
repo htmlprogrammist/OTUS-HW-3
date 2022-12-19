@@ -29,9 +29,15 @@ extension RocketDetailsPresenter: RocketDetailsModuleInput {
 }
 
 extension RocketDetailsPresenter: RocketDetailsViewOutput {
+    func viewDidLoad() {
+        interactor.requestData()
+    }
 }
 
 extension RocketDetailsPresenter: RocketDetailsInteractorOutput {
+    func dataDidReceived(data: Rocket) {
+        view?.showData(data: data)
+    }
 }
 
 extension RocketDetailsPresenter: RocketDetailsRouterOutput {

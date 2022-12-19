@@ -23,7 +23,7 @@ public final class RocketDetailsAssembly {
     
     public static func assemble(with context: RocketDetailsContext) -> RocketDetailsAssembly {
         let router = RocketDetailsRouter()
-        let interactor = RocketDetailsInteractor()
+        let interactor = RocketDetailsInteractor(rocket: context.rocket)
         let presenter = RocketDetailsPresenter(router: router, interactor: interactor)
         let viewController = RocketDetailsViewController(presenter: presenter)
         
@@ -48,8 +48,5 @@ public final class RocketDetailsAssembly {
 
 public struct RocketDetailsContext {
     weak var moduleOutput: RocketDetailsModuleOutput?
-    
-    public init(moduleOutput: RocketDetailsModuleOutput?) {
-        self.moduleOutput = moduleOutput
-    }
+    let rocket: Rocket
 }

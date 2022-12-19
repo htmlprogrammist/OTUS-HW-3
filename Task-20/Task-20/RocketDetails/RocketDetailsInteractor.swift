@@ -10,7 +10,15 @@ import Foundation
 
 final class RocketDetailsInteractor {
     weak var presenter: RocketDetailsInteractorOutput?
+    let rocket: Rocket
+    
+    init(rocket: Rocket) {
+        self.rocket = rocket
+    }
 }
 
 extension RocketDetailsInteractor: RocketDetailsInteractorInput {
+    func requestData() {
+        presenter?.dataDidReceived(data: rocket)
+    }
 }
