@@ -33,11 +33,9 @@
 		F016457A2950F87F00D55D12 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01645762950F87F00D55D12 /* UIViewController.swift */; };
 		F016457B2950F87F00D55D12 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01645772950F87F00D55D12 /* UIColor.swift */; };
 		F016457D2950FA8200D55D12 /* AppDIContainter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016457C2950FA8200D55D12 /* AppDIContainter.swift */; };
-		F016458229510B2300D55D12 /* ImagesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016457E29510B2300D55D12 /* ImagesView.swift */; };
 		F016458329510B2300D55D12 /* OverviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016457F29510B2300D55D12 /* OverviewView.swift */; };
 		F016458429510B2300D55D12 /* DescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016458029510B2300D55D12 /* DescriptionView.swift */; };
 		F016458529510B2300D55D12 /* ShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016458129510B2300D55D12 /* ShadowButton.swift */; };
-		F016458829510D3000D55D12 /* ImagesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F016458729510D3000D55D12 /* ImagesCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,11 +67,9 @@
 		F01645762950F87F00D55D12 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		F01645772950F87F00D55D12 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		F016457C2950FA8200D55D12 /* AppDIContainter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainter.swift; sourceTree = "<group>"; };
-		F016457E29510B2300D55D12 /* ImagesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesView.swift; sourceTree = "<group>"; };
 		F016457F29510B2300D55D12 /* OverviewView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OverviewView.swift; sourceTree = "<group>"; };
 		F016458029510B2300D55D12 /* DescriptionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionView.swift; sourceTree = "<group>"; };
 		F016458129510B2300D55D12 /* ShadowButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowButton.swift; sourceTree = "<group>"; };
-		F016458729510D3000D55D12 /* ImagesCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagesCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,9 +192,7 @@
 		F016458629510CB500D55D12 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				F016458729510D3000D55D12 /* ImagesCollectionViewCell.swift */,
 				F016458029510B2300D55D12 /* DescriptionView.swift */,
-				F016457E29510B2300D55D12 /* ImagesView.swift */,
 				F016457F29510B2300D55D12 /* OverviewView.swift */,
 				F016458129510B2300D55D12 /* ShadowButton.swift */,
 				F01645522950F60B00D55D12 /* RocketDetailsViewController.swift */,
@@ -279,7 +273,6 @@
 				F016454D2950F5D400D55D12 /* NetworkManager.swift in Sources */,
 				F01645562950F60B00D55D12 /* RocketDetailsPresenter.swift in Sources */,
 				F01645372950F45000D55D12 /* AppDelegate.swift in Sources */,
-				F016458829510D3000D55D12 /* ImagesCollectionViewCell.swift in Sources */,
 				F01645672950F62C00D55D12 /* RocketListAssembly.swift in Sources */,
 				F016456D2950F70A00D55D12 /* RocketsCollectionViewCell.swift in Sources */,
 				F01645582950F60B00D55D12 /* RocketDetailsViewController.swift in Sources */,
@@ -303,7 +296,6 @@
 				F01645632950F62C00D55D12 /* RocketListPresenter.swift in Sources */,
 				F01645392950F45000D55D12 /* SceneDelegate.swift in Sources */,
 				F016456B2950F6A300D55D12 /* Rocket.swift in Sources */,
-				F016458229510B2300D55D12 /* ImagesView.swift in Sources */,
 				F016458329510B2300D55D12 /* OverviewView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

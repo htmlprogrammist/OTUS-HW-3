@@ -33,7 +33,7 @@ extension RocketListPresenter: RocketListViewOutput {
     }
     
     func didSelect(rocket: Rocket) {
-        
+        router.openRocketDetailsModule(for: rocket)
     }
 }
 

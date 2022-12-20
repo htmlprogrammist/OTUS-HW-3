@@ -33,7 +33,6 @@ final class RocketDetailsViewController: UIViewController {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
         imageView.layer.masksToBounds = true
-        imageView.loadImage(for: rocket.flickrImages?.first ?? "")
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
@@ -48,7 +47,6 @@ final class RocketDetailsViewController: UIViewController {
     lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
-        label.text = rocket.name
         label.font = UIFont.systemFont(ofSize: 48, weight: .bold)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -60,44 +58,23 @@ final class RocketDetailsViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    lazy var descriptionView = DescriptionView(text: rocket.rocketDescription ?? "")
-    private lazy var overviewView: OverviewView = {
-        let labels = ["First launch", "Launch cost", "Success", "Mass", "Height", "Diameter"]
-        let formattedDateOfFirstFlight = (rocket.firstFlight ?? "1970-01-01").parseDate(dateFormat: "yyyy-MM-dd").formatDate()
-        let data = [formattedDateOfFirstFlight, rocket.costPerLaunch, rocket.successRatePct, rocket.mass?.kg, rocket.height?.meters, rocket.diameter?.meters] as [Any]
-        let suffixes = ["", "$", "%", " kg", " meters", " meters"]
-        let overview = OverviewView(titleText: "Overview", labels: labels, data: data, suffixes: suffixes)
-        return overview
-    }()
-    private lazy var imageCollectionView = ImagesView(imagesUrls: rocket.flickrImages ?? [])
+    
     private lazy var enginesView: OverviewView = {
         let labels = ["Type", "Layout", "Version", "Amount", "Propellant 1", "Propellant 2"]
-        let data = [rocket.engines?.type, rocket.engines?.layout, rocket.engines?.version, "\(String(describing: rocket.engines?.number))", rocket.engines?.propellant1, rocket.engines?.propellant2]
         let suffixes = ["", "", "", "", "", ""]
-        let overview = OverviewView(titleText: "Engines", labels: labels, data: data, suffixes: suffixes)
+        let overview = OverviewView(titleText: "Engines", labels: labels, data: [], suffixes: suffixes)
         return overview
     }()
     private lazy var firstStageView: OverviewView = {
         let labels = ["Reusable", "Engines amount", "Fuel amount", "Burning time", "Thrust (sea level)", "Thrust (vacuum)"]
-        let formattedTrueFalse = (rocket.firstStage?.reusable ?? false) ? "Yes": "No"
-        let data = [formattedTrueFalse, "\(String(describing: rocket.firstStage?.engines))", "\(String(describing: rocket.firstStage?.fuelAmountTons))", "\(String(describing: rocket.firstStage?.burnTimeSEC))", "\(String(describing: rocket.firstStage?.thrustSeaLevel?.kN))", "\(String(describing: rocket.firstStage?.thrustVacuum?.kN))"]
         let suffixes = ["", "", " tons", " seconds", " kN", " kN"]
-        let overview = OverviewView(titleText: "First stage", labels: labels, data: data, suffixes: suffixes)
+        let overview = OverviewView(titleText: "First stage", labels: labels, data: [], suffixes: suffixes)
         return overview
     }()
     private lazy var secondStageView: OverviewView = {
         let labels = ["Reusable", "Engines amount", "Fuel amount", "Burning time", "Thrust"]
-        let formattedTrueFalse = (rocket.secondStage?.reusable ?? false) ? "Yes": "No"
-        let data = [formattedTrueFalse, "\(String(describing: rocket.secondStage?.engines))", "\(String(describing: rocket.secondStage?.fuelAmountTons))", "\(String(describing: rocket.secondStage?.burnTimeSEC))", "\(String(describing: rocket.secondStage?.thrust?.kN))"]
         let suffixes = ["", "", " tons", " seconds", " kN"]
-        let overview = OverviewView(titleText: "Second stage", labels: labels, data: data, suffixes: suffixes)
-        return overview
-    }()
-    private lazy var landingLegsView: OverviewView = {
-        let labels = ["Amount", "Material"]
-        let data = ["\(rocket.landingLegs?.number ?? 0)", rocket.landingLegs?.material]
-        let suffixes = ["", ""]
-        let overview = OverviewView(titleText: "Landing legs", labels: labels, data: data, suffixes: suffixes)
+        let overview = OverviewView(titleText: "Second stage", labels: labels, data: [], suffixes: suffixes)
         return overview
     }()
     
@@ -144,6 +121,7 @@ final class RocketDetailsViewController: UIViewController {
         super.viewDidLayoutSubviews()
         
         gradientLayer.frame = imageView.layer.bounds
+        fillInData()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -152,6 +130,18 @@ final class RocketDetailsViewController: UIViewController {
         UIView.transition(with: contentView, duration: 0.15, options: [.transitionFlipFromTop, .curveEaseOut], animations: { [self] in
             contentView.alpha = 0
         }, completion: nil)
+    }
+    
+    private func fillInData() {
+        imageView.loadImage(for: rocket.flickrImages?.first ?? "")
+        titleLabel.text = rocket.name
+        
+        enginesView.data = [rocket.engines?.type, rocket.engines?.layout, rocket.engines?.version, "\(String(describing: rocket.engines?.number))", rocket.engines?.propellant1, rocket.engines?.propellant2]
+        var formattedTrueFalse = (rocket.firstStage?.reusable ?? false) ? "Yes": "No"
+        firstStageView.data = [formattedTrueFalse, "\(String(describing: rocket.firstStage?.engines))", "\(String(describing: rocket.firstStage?.fuelAmountTons))", "\(String(describing: rocket.firstStage?.burnTimeSEC))", "\(String(describing: rocket.firstStage?.thrustSeaLevel?.kN))", "\(String(describing: rocket.firstStage?.thrustVacuum?.kN))"]
+        
+        formattedTrueFalse = (rocket.secondStage?.reusable ?? false) ? "Yes": "No"
+        secondStageView.data = [formattedTrueFalse, "\(String(describing: rocket.secondStage?.engines))", "\(String(describing: rocket.secondStage?.fuelAmountTons))", "\(String(describing: rocket.secondStage?.burnTimeSEC))", "\(String(describing: rocket.secondStage?.thrust?.kN))"]
     }
     
     private func setupView() {
@@ -194,12 +184,10 @@ final class RocketDetailsViewController: UIViewController {
     private func showDetails() {
         scrollView.addSubview(contentView)
         
-        [descriptionView, overviewView, imageCollectionView, enginesView, firstStageView, secondStageView, landingLegsView].forEach {
+        [enginesView, firstStageView, secondStageView].forEach {
             contentView.addSubview($0)
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
-        
-        contentView.addSubview(materialsLabel)
         
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: imageView.bottomAnchor),
@@ -208,19 +196,7 @@ final class RocketDetailsViewController: UIViewController {
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             contentView.widthAnchor.constraint(equalTo: view.widthAnchor),
             
-            descriptionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            descriptionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            descriptionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            
-            overviewView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            overviewView.topAnchor.constraint(equalTo: descriptionView.descriptionLabel.bottomAnchor, constant: 30),
-            overviewView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            
-            imageCollectionView.topAnchor.constraint(equalTo: overviewView.mainStackView.bottomAnchor, constant: 20),
-            imageCollectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            imageCollectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            
-            enginesView.topAnchor.constraint(equalTo: imageCollectionView.collectionView.bottomAnchor, constant: 30),
+            enginesView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 30),
             enginesView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             enginesView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             
@@ -230,19 +206,12 @@ final class RocketDetailsViewController: UIViewController {
             
             secondStageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             secondStageView.topAnchor.constraint(equalTo: firstStageView.mainStackView.bottomAnchor, constant: 30),
-            secondStageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            
-            landingLegsView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            landingLegsView.topAnchor.constraint(equalTo: secondStageView.mainStackView.bottomAnchor, constant: 30),
-            landingLegsView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            
-            materialsLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            materialsLabel.topAnchor.constraint(equalTo: landingLegsView.mainStackView.bottomAnchor, constant: 20)
+            secondStageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
         ])
         
         contentView.addSubview(footer)
         NSLayoutConstraint.activate([
-            footer.topAnchor.constraint(equalTo: materialsLabel.bottomAnchor),
+            footer.topAnchor.constraint(equalTo: secondStageView.mainStackView.bottomAnchor),
             footer.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             footer.heightAnchor.constraint(equalToConstant: 20)
         ])

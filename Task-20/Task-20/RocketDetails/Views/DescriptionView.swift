@@ -9,7 +9,11 @@ import UIKit
 
 final class DescriptionView: UIView {
     
-    private var text: String
+    public var text: String {
+        didSet {
+            descriptionLabel.text = text
+        }
+    }
     
     private lazy var contentView: UIView = {
         let view = UIView()

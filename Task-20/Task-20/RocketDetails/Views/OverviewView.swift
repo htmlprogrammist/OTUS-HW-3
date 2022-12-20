@@ -9,9 +9,14 @@ import UIKit
 
 final class OverviewView: UIView {
     
+    public var data: [Any] {
+        didSet {
+            displayData()
+        }
+    }
+    
     private var titleText: String
     private let labels: [String]
-    private let data: [Any]
     private let suffixes: [String]
     
     private lazy var contentView: UIView = {
@@ -46,17 +51,7 @@ final class OverviewView: UIView {
         contentView.addSubview(titleLabel)
         contentView.addSubview(mainStackView)
         
-        for i in 0..<data.count {
-            if let dataUnwrapped = data[i] as? String, dataUnwrapped != "nil", dataUnwrapped != "" {
-                let label1 = UILabel(text: labels[i], weight: .bold)
-                let label2 = UILabel(text: dataUnwrapped + suffixes[i], weight: .bold, color: .slateGray)
-                label2.textAlignment = .left
-                label1.widthAnchor.constraint(equalToConstant: 120).isActive = true
-                
-                let stackView = UIStackView(arrangedSubviews: [label1, label2], axis: .horizontal, spacing: 30)
-                mainStackView.addArrangedSubview(stackView)
-            }
-        }
+        displayData()
         
         NSLayoutConstraint.activate([
             contentView.topAnchor.constraint(equalTo: topAnchor),
@@ -72,5 +67,19 @@ final class OverviewView: UIView {
             mainStackView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             mainStackView.topAnchor.constraint(greaterThanOrEqualTo: titleLabel.bottomAnchor, constant: 20)
         ])
+    }
+    
+    private func displayData() {
+        for i in 0..<data.count {
+            if let dataUnwrapped = data[i] as? String, dataUnwrapped != "nil", dataUnwrapped != "" {
+                let label1 = UILabel(text: labels[i], weight: .bold)
+                let label2 = UILabel(text: dataUnwrapped + suffixes[i], weight: .bold, color: .slateGray)
+                label2.textAlignment = .left
+                label1.widthAnchor.constraint(equalToConstant: 120).isActive = true
+                
+                let stackView = UIStackView(arrangedSubviews: [label1, label2], axis: .horizontal, spacing: 30)
+                mainStackView.addArrangedSubview(stackView)
+            }
+        }
     }
 }

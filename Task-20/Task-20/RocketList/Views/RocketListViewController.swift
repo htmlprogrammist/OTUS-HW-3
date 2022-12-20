@@ -19,7 +19,7 @@ final class RocketListViewController: UICollectionViewController {
     init(presenter: RocketListViewOutput) {
         self.presenter = presenter
         
-        super.init(collectionViewLayout: UICollectionViewLayout())
+        super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -79,7 +79,7 @@ extension RocketListViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.size.width - 2 * 18
-        let height = width * 0.953
+        let height = width * 0.79
         return CGSize(width: width, height: height)
     }
 }
