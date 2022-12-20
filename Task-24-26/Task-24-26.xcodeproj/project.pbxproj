@@ -135,14 +135,14 @@
 		F0F8EB8A29522BAD005BD97B /* Task-24-26 */ = {
 			isa = PBXGroup;
 			children = (
+				F0F8EBA329522C06005BD97B /* Application */,
 				F0F332B1295231C2008FD1FD /* CommonUI */,
 				F0F332A22952303E008FD1FD /* Models */,
 				F0F8EBAD29522D05005BD97B /* Views */,
-				F0F8EBA329522C06005BD97B /* Application */,
+				F0F8EBA629522C92005BD97B /* Controllers */,
+				F0F3329A29522F53008FD1FD /* Services */,
 				F0F8EBA229522BFB005BD97B /* Supporting Files */,
 				F0F8EB9C29522BB0005BD97B /* Info.plist */,
-				F0F3329A29522F53008FD1FD /* Services */,
-				F0F8EBA629522C92005BD97B /* Controllers */,
 			);
 			path = "Task-24-26";
 			sourceTree = "<group>";
