@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let context = RocketListContext(moduleOutput: nil, networkManager: networkManager)
         let assembly = RocketListAssembly.assemble(with: context)
         
-        window.rootViewController = assembly.viewController
+        window.rootViewController = UINavigationController(rootViewController: assembly.viewController)
         window.overrideUserInterfaceStyle = .light
         window.makeKeyAndVisible()
         self.window = window
