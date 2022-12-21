@@ -14,6 +14,7 @@ class ViewController: UITableViewController {
         
         view.backgroundColor = .systemBackground
         tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
     }
     
     override func viewWillAppear(_ animated: Bool) {

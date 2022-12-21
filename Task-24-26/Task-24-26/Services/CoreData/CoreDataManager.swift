@@ -47,6 +47,8 @@ public final class CoreDataManager: CoreDataManagerProtocol {
         }
     }
     
+    // MARK: - Methods
+    
     func createRecipe(with data: Todo) {
         let todo = CDTodo(context: managedObjectContext)
         todo.userID = Int32(data.userID)

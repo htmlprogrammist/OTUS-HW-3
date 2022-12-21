@@ -138,3 +138,9 @@ struct Payloads: Codable {
 struct CompositeFairing: Codable {
     let height, diameter: Diameter?
 }
+
+extension Rocket {
+    init() {
+        self.init(height: nil, diameter: nil, mass: nil, firstStage: nil, secondStage: nil, engines: nil, landingLegs: nil, payloadWeights: nil, flickrImages: nil, name: nil, type: nil, active: nil, stages: nil, boosters: nil, costPerLaunch: nil, successRatePct: nil, firstFlight: nil, country: nil, company: nil, wikipedia: nil, rocketDescription: nil, id: nil)
+    }
+}

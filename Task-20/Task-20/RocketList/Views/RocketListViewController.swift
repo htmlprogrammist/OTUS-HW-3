@@ -45,6 +45,7 @@ final class RocketListViewController: UICollectionViewController {
 extension RocketListViewController: RocketListViewInput {
     func showData(data: [Rocket]) {
         rockets = data
+        print(data)
         collectionView.reloadData()
     }
     
