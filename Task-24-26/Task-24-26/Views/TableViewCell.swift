@@ -9,7 +9,12 @@ import UIKit
 
 final class TableViewCell: UITableViewCell {
     
-    private let todosImageView = UIImageView()
+    private let todosImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -51,9 +56,20 @@ final class TableViewCell: UITableViewCell {
         labelsStackView.spacing = 4
         labelsStackView.axis = .vertical
         
-        let mainStackView = UIStackView(arrangedSubviews: [todosImageView, labelsStackView])
-        mainStackView.spacing = 4
-        mainStackView.axis = .horizontal
-        contentView.addSubview(mainStackView)
+        contentView.addSubview(labelsStackView)
+        labelsStackView.translatesAutoresizingMaskIntoConstraints = false
+        contentView.addSubview(todosImageView)
+        
+        NSLayoutConstraint.activate([
+            todosImageView.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+            todosImageView.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            todosImageView.heightAnchor.constraint(equalToConstant: 28),
+            todosImageView.widthAnchor.constraint(equalToConstant: 28),
+            
+            labelsStackView.leadingAnchor.constraint(equalTo: todosImageView.trailingAnchor, constant: 8),
+            labelsStackView.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+            labelsStackView.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+            labelsStackView.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor)
+        ])
     }
 }

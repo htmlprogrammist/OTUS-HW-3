@@ -14,6 +14,7 @@ class ViewController: UITableViewController {
         
         view.backgroundColor = .systemBackground
         tableView = UITableView(frame: .zero, style: .insetGrouped)
+        tableView.rowHeight = 76
         tableView.register(TableViewCell.self, forCellReuseIdentifier: "cell")
     }
     

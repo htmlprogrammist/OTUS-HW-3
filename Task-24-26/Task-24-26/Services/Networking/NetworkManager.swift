@@ -12,27 +12,6 @@ protocol NetworkManagerProtocol {
     func perform<Model: Codable>(request: NetworkRequest, completion: @escaping (Result<Model, NetworkManagerError>) -> Void)
 }
 
-struct NetworkRequest {
-    var urlString: String
-    var method: HTTPMethod = .get
-    var httpHeaderFields: [String: String] = [:]
-}
-
-enum HTTPMethod: String {
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
-    case patch = "PATCH"
-    case delete = "DELETE"
-}
-
-enum NetworkManagerError: Error {
-    case invalidURL
-    case retainCycle
-    case networkError
-    case parsingJSONError
-}
-
 final class NetworkManager: NetworkManagerProtocol {
     
     public var session: URLSession
@@ -44,7 +23,7 @@ final class NetworkManager: NetworkManagerProtocol {
     
     public func perform<Model: Codable>(request: NetworkRequest, completion: @escaping (Result<Model, NetworkManagerError>) -> Void) {
         
-        guard let url = URL(string: request.urlString) else {
+        guard let url = request.endpoint.url else {
             completion(.failure(NetworkManagerError.invalidURL))
             return
         }

@@ -15,3 +15,9 @@ struct Todo: Codable {
             case id, title, completed
         }
 }
+
+extension Todo: Equatable {
+    public static func == (lhs: Todo, rhs: Todo) -> Bool {
+        lhs.id == rhs.id
+    }
+}
