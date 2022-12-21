@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F009CF3D29531AE800A31972 /* CustomActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009CF3C29531AE800A31972 /* CustomActivityIndicator.swift */; };
+		F009CF3F29531C0600A31972 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009CF3E29531C0600A31972 /* OnboardingViewController.swift */; };
+		F009CF4329531CC000A31972 /* OnboardingTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009CF4029531CC000A31972 /* OnboardingTableViewHeader.swift */; };
+		F009CF4429531CC000A31972 /* OnboardingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009CF4129531CC000A31972 /* OnboardingTableViewCell.swift */; };
+		F009CF4529531CC000A31972 /* OnboardingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F009CF4229531CC000A31972 /* OnboardingViewModel.swift */; };
 		F0F332C529524F8A008FD1FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F332C429524F8A008FD1FD /* AppDelegate.swift */; };
 		F0F332C929524F8A008FD1FD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F332C829524F8A008FD1FD /* ViewController.swift */; };
 		F0F332CE29524F90008FD1FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F0F332CD29524F90008FD1FD /* Assets.xcassets */; };
@@ -14,6 +19,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F009CF3C29531AE800A31972 /* CustomActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomActivityIndicator.swift; sourceTree = "<group>"; };
+		F009CF3E29531C0600A31972 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		F009CF4029531CC000A31972 /* OnboardingTableViewHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingTableViewHeader.swift; sourceTree = "<group>"; };
+		F009CF4129531CC000A31972 /* OnboardingTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingTableViewCell.swift; sourceTree = "<group>"; };
+		F009CF4229531CC000A31972 /* OnboardingViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OnboardingViewModel.swift; sourceTree = "<group>"; };
 		F0F332C129524F8A008FD1FD /* Task-22.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Task-22.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0F332C429524F8A008FD1FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F0F332C829524F8A008FD1FD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -33,6 +43,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F009CF4629531CC600A31972 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				F009CF4129531CC000A31972 /* OnboardingTableViewCell.swift */,
+				F009CF4029531CC000A31972 /* OnboardingTableViewHeader.swift */,
+				F009CF4229531CC000A31972 /* OnboardingViewModel.swift */,
+				F009CF3E29531C0600A31972 /* OnboardingViewController.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		F009CF4729531CD500A31972 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F0F332CD29524F90008FD1FD /* Assets.xcassets */,
+				F0F332CF29524F90008FD1FD /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		F0F332B829524F8A008FD1FD = {
 			isa = PBXGroup;
 			children = (
@@ -54,8 +84,9 @@
 			children = (
 				F0F332C429524F8A008FD1FD /* AppDelegate.swift */,
 				F0F332C829524F8A008FD1FD /* ViewController.swift */,
-				F0F332CD29524F90008FD1FD /* Assets.xcassets */,
-				F0F332CF29524F90008FD1FD /* LaunchScreen.storyboard */,
+				F009CF3C29531AE800A31972 /* CustomActivityIndicator.swift */,
+				F009CF4629531CC600A31972 /* Onboarding */,
+				F009CF4729531CD500A31972 /* Resources */,
 				F0F332D229524F90008FD1FD /* Info.plist */,
 			);
 			path = "Task-22";
@@ -133,6 +164,11 @@
 			files = (
 				F0F332C929524F8A008FD1FD /* ViewController.swift in Sources */,
 				F0F332C529524F8A008FD1FD /* AppDelegate.swift in Sources */,
+				F009CF3D29531AE800A31972 /* CustomActivityIndicator.swift in Sources */,
+				F009CF3F29531C0600A31972 /* OnboardingViewController.swift in Sources */,
+				F009CF4429531CC000A31972 /* OnboardingTableViewCell.swift in Sources */,
+				F009CF4529531CC000A31972 /* OnboardingViewModel.swift in Sources */,
+				F009CF4329531CC000A31972 /* OnboardingTableViewHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

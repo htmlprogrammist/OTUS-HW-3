@@ -9,13 +9,30 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // MARK: - Private Properties
+    
+    private let activityIndicator = CustomActivityIndicator()
+    
+    // MARK: - Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupView()
     }
     
+    // MARK: - Private Methods
+    
     private func setupView() {
+        view.backgroundColor = .systemBackground
+        view.addSubview(activityIndicator)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
+        NSLayoutConstraint.activate([
+            activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            activityIndicator.heightAnchor.constraint(equalToConstant: 60),
+            activityIndicator.widthAnchor.constraint(equalToConstant: 60),
+        ])
     }
 }
