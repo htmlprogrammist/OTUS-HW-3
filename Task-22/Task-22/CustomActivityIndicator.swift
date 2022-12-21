@@ -18,7 +18,7 @@ final class CustomActivityIndicator: UIView {
     public var lineWidth: CGFloat = 8
     
     /// Color of the activity indicator.
-    public var color: UIColor = .systemGray
+    public var color: UIColor = .systemGray3
     
     /// Timing function of the ring's fill animation. Default is `.easeOut`.
     public var timingFunction: CAMediaTimingFunction = .init(name: CAMediaTimingFunctionName.easeOut)
@@ -36,8 +36,7 @@ final class CustomActivityIndicator: UIView {
     
     private lazy var loopingAnimation: CAAnimation = {
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
-        animation.fromValue = 0
-        animation.toValue = Double.pi * 2 + 0.2
+        animation.toValue = Double.pi * 2
         animation.duration = duration
         animation.repeatCount = .infinity
         return animation
@@ -49,7 +48,12 @@ final class CustomActivityIndicator: UIView {
         super.layoutSubviews()
         
         layer.addSublayer(indicatorLayer)
-        
+        addAnimation()
+    }
+    
+    // MARK: - Private Methods
+    
+    private func addAnimation() {
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         indicatorLayer.position = center
         let bezierPath = UIBezierPath(arcCenter: .zero, radius: bounds.width / 2 - lineWidth / 2, startAngle: -Double.pi / 2, endAngle: 1.5 * Double.pi, clockwise: true)
