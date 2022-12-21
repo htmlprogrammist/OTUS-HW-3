@@ -8,74 +8,70 @@
 import UIKit
 
 final class CustomActivityIndicator: UIView {
-    private let startOffset: Double = 0.05
-
-    let circleLayer = CAShapeLayer()
-
-    var rotationAnimation: CAAnimation {
-        let radius = Double(bounds.width) / 2.0
-        let perimeter = 2 * Double.pi * radius
-        let theta = perimeter * startOffset / (2 * radius)
+    
+    // MARK: - Public Properties
+    
+    /// Duration of the ring's fill animation. Default is `3.0`.
+    public var duration: TimeInterval = 3
+    
+    /// Sets the line width for activity indicator.
+    public var lineWidth: CGFloat = 8
+    
+    /// Color of the activity indicator.
+    public var color: UIColor = .systemGray
+    
+    /// Timing function of the ring's fill animation. Default is `.easeOut`.
+    public var timingFunction: CAMediaTimingFunction = .init(name: CAMediaTimingFunctionName.easeOut)
+    
+    // MARK: - Private Properties
+    
+    private lazy var indicatorLayer: CAShapeLayer = {
+        let circleLayer = CAShapeLayer()
+        circleLayer.lineWidth = lineWidth
+        circleLayer.fillColor = nil
+        circleLayer.strokeColor = color.cgColor
+        circleLayer.lineCap = .round
+        return circleLayer
+    }()
+    
+    private lazy var loopingAnimation: CAAnimation = {
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
         animation.fromValue = 0
-        animation.toValue = theta * 2 + Double.pi * 2
-        animation.duration = 3.5
+        animation.toValue = Double.pi * 2 + 0.2
+        animation.duration = duration
         animation.repeatCount = .infinity
         return animation
-    }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        setup()
-    }
-
-    func setup() {
-        circleLayer.lineWidth = 10.0
-        circleLayer.fillColor = nil
-
-        circleLayer.strokeColor = UIColor.systemRed.cgColor
-        circleLayer.lineCap = .round
-        layer.addSublayer(circleLayer)
-        updateAnimation()
-    }
-
+    }()
+    
+    // MARK: - Life Cycle
+    
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        layer.addSublayer(indicatorLayer)
+        
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
-        let radius = min(bounds.width, bounds.height) / 2 - circleLayer.lineWidth / 2
-
-        circleLayer.position = center
-
-        circleLayer.path = UIBezierPath(arcCenter: CGPoint.zero,
-                                        radius: radius,
-                                        startAngle: -.pi / 2,
-                                        endAngle: 3 * .pi / 2,
-                                        clockwise: true).cgPath
-        setup()
-    }
-
-    private func updateAnimation() {
-        let strokeStartAnimation = CABasicAnimation(keyPath: "strokeStart")
+        indicatorLayer.position = center
+        let bezierPath = UIBezierPath(arcCenter: .zero, radius: bounds.width / 2 - lineWidth / 2, startAngle: -Double.pi / 2, endAngle: 1.5 * Double.pi, clockwise: true)
+        indicatorLayer.path = bezierPath.cgPath
+        
+        let strokeStartAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeStart))
+        let strokeEndAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeEnd))
+        let animations = [strokeStartAnimation, strokeEndAnimation]
+        
+        animations.forEach {
+            $0.fromValue = 0
+            $0.toValue = 1.0
+        }
         strokeStartAnimation.beginTime = 0.5
-        strokeStartAnimation.fromValue = 0
-        strokeStartAnimation.toValue = 1.0 - startOffset
-        strokeStartAnimation.duration = 3.0
-        strokeStartAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-
-        let strokeEndAnimation = CABasicAnimation(keyPath: "strokeEnd")
-        strokeEndAnimation.fromValue = startOffset
-        strokeEndAnimation.toValue = 1.0
-        strokeEndAnimation.duration = 2.0
-        strokeEndAnimation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-
+        
         let strokeAnimationGroup = CAAnimationGroup()
-        strokeAnimationGroup.duration = 3.5
+        strokeAnimationGroup.animations = animations
+        strokeAnimationGroup.timingFunction = timingFunction
+        strokeAnimationGroup.duration = duration
         strokeAnimationGroup.repeatCount = .infinity
-        strokeAnimationGroup.fillMode = .forwards
-        strokeAnimationGroup.isRemovedOnCompletion = false
-        strokeAnimationGroup.animations = [strokeStartAnimation, strokeEndAnimation]
-
-        circleLayer.add(strokeAnimationGroup, forKey: nil)
-        circleLayer.add(rotationAnimation, forKey: "rotation")
+        
+        indicatorLayer.add(strokeAnimationGroup, forKey: "strokeAnimationGroup")
+        indicatorLayer.add(loopingAnimation, forKey: "rotationAnimation")
     }
 }

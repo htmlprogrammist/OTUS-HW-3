@@ -26,13 +26,14 @@ class ViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .systemBackground
         view.addSubview(activityIndicator)
+        activityIndicator.lineWidth = 5
         activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            activityIndicator.heightAnchor.constraint(equalToConstant: 60),
-            activityIndicator.widthAnchor.constraint(equalToConstant: 60),
+            activityIndicator.heightAnchor.constraint(equalToConstant: 36),
+            activityIndicator.widthAnchor.constraint(equalToConstant: 36),
         ])
     }
 }
