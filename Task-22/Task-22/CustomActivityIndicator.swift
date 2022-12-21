@@ -21,7 +21,7 @@ final class CustomActivityIndicator: UIView {
     public var color: UIColor = .systemGray3
     
     /// Timing function of the ring's fill animation. Default is `.easeOut`.
-    public var timingFunction: CAMediaTimingFunction = .init(name: CAMediaTimingFunctionName.easeOut)
+    public var timingFunction: CAMediaTimingFunction = .init(controlPoints: 0.39, 0.575, 0.565, 1)
     
     // MARK: - Private Properties
     
