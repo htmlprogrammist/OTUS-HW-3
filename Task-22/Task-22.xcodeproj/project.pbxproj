@@ -63,6 +63,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		F009CF4829534A9800A31972 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F0F332C429524F8A008FD1FD /* AppDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		F0F332B829524F8A008FD1FD = {
 			isa = PBXGroup;
 			children = (
@@ -82,7 +90,7 @@
 		F0F332C329524F8A008FD1FD /* Task-22 */ = {
 			isa = PBXGroup;
 			children = (
-				F0F332C429524F8A008FD1FD /* AppDelegate.swift */,
+				F009CF4829534A9800A31972 /* Application */,
 				F0F332C829524F8A008FD1FD /* ViewController.swift */,
 				F009CF3C29531AE800A31972 /* CustomActivityIndicator.swift */,
 				F009CF4629531CC600A31972 /* Onboarding */,

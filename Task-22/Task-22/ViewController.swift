@@ -11,6 +11,7 @@ class ViewController: UIViewController {
     
     // MARK: - Private Properties
     
+    /// Custom loader.
     private let activityIndicator: CustomActivityIndicator = {
         let activityIndicator = CustomActivityIndicator()
         activityIndicator.duration = 3.2

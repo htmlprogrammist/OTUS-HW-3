@@ -25,6 +25,7 @@ final class CustomActivityIndicator: UIView {
     
     // MARK: - Private Properties
     
+    /// Layer of the loading indicator.
     private lazy var indicatorLayer: CAShapeLayer = {
         let circleLayer = CAShapeLayer()
         circleLayer.lineWidth = lineWidth
@@ -34,6 +35,7 @@ final class CustomActivityIndicator: UIView {
         return circleLayer
     }()
     
+    /// Looping animation for `indicatorLayer`.
     private lazy var loopingAnimation: CAAnimation = {
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
         animation.toValue = Double.pi * 2
@@ -53,6 +55,7 @@ final class CustomActivityIndicator: UIView {
     
     // MARK: - Private Methods
     
+    /// Method setups animation of the layer.
     private func addAnimation() {
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         indicatorLayer.position = center
