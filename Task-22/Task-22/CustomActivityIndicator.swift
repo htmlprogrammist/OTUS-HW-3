@@ -56,7 +56,7 @@ final class CustomActivityIndicator: UIView {
     private func addAnimation() {
         let center = CGPoint(x: bounds.midX, y: bounds.midY)
         indicatorLayer.position = center
-        let bezierPath = UIBezierPath(arcCenter: .zero, radius: bounds.width / 2 - lineWidth / 2, startAngle: -Double.pi / 2, endAngle: 1.5 * Double.pi, clockwise: true)
+        let bezierPath = UIBezierPath(arcCenter: .zero, radius: (bounds.width - lineWidth) / 2, startAngle: -Double.pi / 2, endAngle: Double.pi * 1.5, clockwise: true)
         indicatorLayer.path = bezierPath.cgPath
         
         let strokeStartAnimation = CABasicAnimation(keyPath: #keyPath(CAShapeLayer.strokeStart))

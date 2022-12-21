@@ -11,7 +11,15 @@ class ViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private let activityIndicator = CustomActivityIndicator()
+    private let activityIndicator: CustomActivityIndicator = {
+        let activityIndicator = CustomActivityIndicator()
+        activityIndicator.duration = 3.2
+        activityIndicator.lineWidth = 5.5
+        activityIndicator.color = .systemGray4
+        activityIndicator.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
+        return activityIndicator
+    }()
     
     // MARK: - Life Cycle
     
@@ -26,8 +34,6 @@ class ViewController: UIViewController {
     private func setupView() {
         view.backgroundColor = .systemBackground
         view.addSubview(activityIndicator)
-        activityIndicator.lineWidth = 5
-        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor),
