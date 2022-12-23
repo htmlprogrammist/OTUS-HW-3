@@ -10,7 +10,7 @@ import Foundation
 import CoreData
 
 
-extension CDTodo {
+extension CDTodo: TodoProtocol {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<CDTodo> {
         return NSFetchRequest<CDTodo>(entityName: "CDTodo")

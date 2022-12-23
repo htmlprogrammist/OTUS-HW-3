@@ -9,8 +9,10 @@ import UIKit
 
 class SearchableViewController: ViewController {
     
-    private lazy var searchController: UISearchController = {
+    lazy var searchController: UISearchController = {
         let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchResultsUpdater = self
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.placeholder = "Что будем искать?"
         searchController.searchBar.sizeToFit()
         searchController.searchBar.delegate = self
@@ -18,10 +20,28 @@ class SearchableViewController: ViewController {
         return searchController
     }()
     
+    var isSearchBarEmpty: Bool {
+        return searchController.searchBar.text?.isEmpty ?? true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationController?.navigationBar.sizeToFit()
         navigationItem.searchController = searchController
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: Notification.Name(rawValue: "updateTableViewNotification"), object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: Notification.Name(rawValue: "updateTableViewNotification"), object: nil)
+    }
+    
+    func findItem(by text: String) {
+    }
+    
+    @objc func updateTableView() {
+        fetchData()
     }
 }
 
@@ -33,6 +53,7 @@ extension SearchableViewController: UISearchBarDelegate {
     
     func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        findItem(by: searchBar.text ?? "")
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -42,5 +63,12 @@ extension SearchableViewController: UISearchBarDelegate {
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
+        findItem(by: searchBar.text ?? "")
+    }
+}
+
+extension SearchableViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        
     }
 }

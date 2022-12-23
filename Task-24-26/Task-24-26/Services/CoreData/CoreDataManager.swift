@@ -10,8 +10,10 @@ import CoreData
 protocol CoreDataManagerProtocol {
     func fetchTodos() -> [CDTodo]?
     func fetchTodos(by text: String) -> [CDTodo]?
-    func createRecipe(with data: Todo)
+    func createTodo(with data: Todo)
+    func loadTodos(data: [Todo])
     func delete(todo: CDTodo)
+    func clearAll()
 }
 
 /// Responsible for CRUD operations with CoreData.
@@ -49,15 +51,6 @@ public final class CoreDataManager: CoreDataManagerProtocol {
     
     // MARK: - Methods
     
-    func createRecipe(with data: Todo) {
-        let todo = CDTodo(context: managedObjectContext)
-        todo.userID = Int32(data.userID)
-        todo.id = Int32(data.id)
-        todo.title = data.title
-        todo.completed = data.completed
-        saveContext()
-    }
-    
     func fetchTodos() -> [CDTodo]? {
         try? managedObjectContext.fetch(CDTodo.fetchRequest())
     }
@@ -68,8 +61,34 @@ public final class CoreDataManager: CoreDataManagerProtocol {
         return try? managedObjectContext.fetch(fetchRequest)
     }
     
+    func createTodo(with data: Todo) {
+        let todo = CDTodo(context: managedObjectContext)
+        todo.userID = Int32(data.userID)
+        todo.id = Int32(data.id)
+        todo.title = data.title
+        todo.completed = data.completed
+        saveContext()
+    }
+    
+    func loadTodos(data: [Todo]) {
+        for todo in data {
+            createTodo(with: todo)
+        }
+    }
+    
     func delete(todo: CDTodo) {
         managedObjectContext.delete(todo)
+        saveContext()
+    }
+    
+    func clearAll() {
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: CDTodo.fetchRequest())
+
+        do {
+            try managedObjectContext.execute(deleteRequest)
+        } catch let error as NSError {
+            print("Unresolved error \(error), \(error.userInfo)")
+        }
         saveContext()
     }
 }

@@ -51,6 +51,18 @@ final class TableViewCell: UITableViewCell {
         subtitleLabel.text = "ID: \(data.id), user ID: \(data.userID)"
     }
     
+    public func configure(with data: CDTodo) {
+        if data.completed {
+            todosImageView.tintColor = .systemGreen
+            todosImageView.image = UIImage(systemName: "checkmark.circle")
+        } else {
+            todosImageView.tintColor = .systemRed
+            todosImageView.image = UIImage(systemName: "circle")
+        }
+        titleLabel.text = data.title
+        subtitleLabel.text = "ID: \(data.id), user ID: \(data.userID)"
+    }
+    
     private func setupView() {
         let labelsStackView = UIStackView(arrangedSubviews: [titleLabel, subtitleLabel])
         labelsStackView.spacing = 4

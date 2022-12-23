@@ -5,15 +5,20 @@
 //  Created by Егор Бадмаев on 20.12.2022.
 //
 
-struct Todo: Codable {
-    let userID, id: Int
-        let title: String
-        let completed: Bool
+protocol TodoProtocol {
+    var title: String { get }
+    var completed: Bool { get }
+}
 
-        enum CodingKeys: String, CodingKey {
-            case userID = "userId"
-            case id, title, completed
-        }
+struct Todo: TodoProtocol, Codable {
+    let userID, id: Int
+    let title: String
+    let completed: Bool
+    
+    enum CodingKeys: String, CodingKey {
+        case userID = "userId"
+        case id, title, completed
+    }
 }
 
 extension Todo: Equatable {
