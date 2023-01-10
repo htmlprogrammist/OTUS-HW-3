@@ -57,7 +57,7 @@ public final class CoreDataManager: CoreDataManagerProtocol {
     
     func fetchTodos(by text: String) -> [CDTodo]? {
         let fetchRequest = CDTodo.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "title = %@", text)
+        fetchRequest.predicate = NSPredicate(format: "title contains %@", text)
         return try? managedObjectContext.fetch(fetchRequest)
     }
     

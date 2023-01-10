@@ -14,10 +14,6 @@ final class CoreDataViewController: SearchableViewController {
     private var data = [CDTodo]()
     private var filteredData = [CDTodo]()
     
-    var isFiltering: Bool {
-        return searchController.isActive && !isSearchBarEmpty
-    }
-    
     var coreDataManager: CoreDataManagerProtocol!
     
     override func viewDidLoad() {
@@ -33,37 +29,44 @@ final class CoreDataViewController: SearchableViewController {
     }
     
     override func findItem(by text: String) {
-        guard let result = coreDataManager.fetchTodos(by: text) else { return }
-        data = result
-    }
-    
-    override func findItem(by text: String) {
         filterContentForSearchText(text)
     }
     
     override func updateSearchResults(for searchController: UISearchController) {
-        filterContentForSearchText(searchController.searchBar.text ?? "")
+        if let text = searchController.searchBar.text?.lowercased(), !text.isEmpty {
+            filterContentForSearchText(text)
+        }
     }
     
     func filterContentForSearchText(_ searchText: String) {
-        filteredData = data.filter { (data: Todo) -> Bool in
-            return data.title.contains(searchText.lowercased())
-        }
-        
+        guard let result = coreDataManager.fetchTodos(by: searchText) else { return }
+        filteredData = result
         tableView.reloadData()
     }
     
     // MARK: - Table View
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        data.count
+        if isFiltering {
+            return filteredData.count
+        }
+        
+        return data.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as? TableViewCell else {
             fatalError("Could not dequeue or cast cell to TableViewCell")
         }
-        cell.configure(with: data[indexPath.row])
+        let todo: CDTodo!
+        
+        if isFiltering {
+            todo = filteredData[indexPath.row]
+        } else {
+            todo = data[indexPath.row]
+        }
+        
+        cell.configure(with: todo)
         return cell
     }
 }

@@ -14,10 +14,6 @@ final class UserDefaultsViewController: SearchableViewController {
     private var data = [Todo]()
     private var filteredData = [Todo]()
     
-    var isFiltering: Bool {
-        return searchController.isActive && !isSearchBarEmpty
-    }
-    
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         

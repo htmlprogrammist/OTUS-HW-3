@@ -51,6 +51,10 @@ class SearchableViewController: ViewController {
         return searchController.searchBar.text?.isEmpty ?? true
     }
     
+    var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -93,6 +97,7 @@ extension SearchableViewController: UISearchBarDelegate {
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.resignFirstResponder()
         searchBar.text = nil
+        fetchData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
