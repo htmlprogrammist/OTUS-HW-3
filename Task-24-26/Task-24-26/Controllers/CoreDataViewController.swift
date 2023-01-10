@@ -37,6 +37,22 @@ final class CoreDataViewController: SearchableViewController {
         data = result
     }
     
+    override func findItem(by text: String) {
+        filterContentForSearchText(text)
+    }
+    
+    override func updateSearchResults(for searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text ?? "")
+    }
+    
+    func filterContentForSearchText(_ searchText: String) {
+        filteredData = data.filter { (data: Todo) -> Bool in
+            return data.title.contains(searchText.lowercased())
+        }
+        
+        tableView.reloadData()
+    }
+    
     // MARK: - Table View
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

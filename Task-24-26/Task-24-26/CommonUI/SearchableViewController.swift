@@ -20,6 +20,33 @@ class SearchableViewController: ViewController {
         return searchController
     }()
     
+    private lazy var imageView: UIImageView = {
+        let imageView = UIImageView()
+        
+        if let data = UserDefaults.standard.object(forKey: "imageData") as? Data {
+            imageView.image = UIImage(data: data)
+        } else {
+            imageView.image = UIImage(systemName: "person.circle")
+        }
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 18
+        imageView.layer.masksToBounds = true
+        imageView.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(handleTapOnAvatarImageView))
+        imageView.addGestureRecognizer(tap)
+        imageView.layer.zPosition = 3
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private lazy var avatarImagePicker: UIImagePickerController = {
+        let imagePicker = UIImagePickerController()
+        imagePicker.delegate = self
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.allowsEditing = true
+        return imagePicker
+    }()
+    
     var isSearchBarEmpty: Bool {
         return searchController.searchBar.text?.isEmpty ?? true
     }
