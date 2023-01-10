@@ -8,7 +8,6 @@
 import Foundation
 
 extension UserDefaults {
-    /// Contains array of user's favourite recipes.
     @UserDefault(key: "cachedTodos", defaultValue: [Todo]())
     static var cachedTodos: [Todo]
 }

@@ -12,6 +12,11 @@ final class CoreDataViewController: SearchableViewController {
     // MARK: - Private Properties
     
     private var data = [CDTodo]()
+    private var filteredData = [CDTodo]()
+    
+    var isFiltering: Bool {
+        return searchController.isActive && !isSearchBarEmpty
+    }
     
     var coreDataManager: CoreDataManagerProtocol!
     

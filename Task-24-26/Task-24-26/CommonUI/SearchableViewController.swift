@@ -31,6 +31,14 @@ class SearchableViewController: ViewController {
         navigationItem.searchController = searchController
         
         NotificationCenter.default.addObserver(self, selector: #selector(updateTableView), name: Notification.Name(rawValue: "updateTableViewNotification"), object: nil)
+        
+        view.addSubview(imageView)
+        NSLayoutConstraint.activate([
+            imageView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            imageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 26),
+            imageView.heightAnchor.constraint(equalToConstant: 36),
+            imageView.widthAnchor.constraint(equalToConstant: 36),
+        ])
     }
     
     deinit {
@@ -43,17 +51,16 @@ class SearchableViewController: ViewController {
     @objc func updateTableView() {
         fetchData()
     }
+    
+    @objc func handleTapOnAvatarImageView() {
+        present(avatarImagePicker, animated: true)
+    }
 }
 
 extension SearchableViewController: UISearchBarDelegate {
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
         
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        findItem(by: searchBar.text ?? "")
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
@@ -70,5 +77,28 @@ extension SearchableViewController: UISearchBarDelegate {
 extension SearchableViewController: UISearchResultsUpdating {
     func updateSearchResults(for searchController: UISearchController) {
         
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate
+
+extension SearchableViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        defer {
+            picker.dismiss(animated: true)
+        }
+        
+        guard let image = info[.editedImage] as? UIImage else {
+            print("Could not cast edited image to UIImage: \(String(describing: info[.editedImage]))")
+            return
+        }
+        imageView.image = image
+        
+        guard let data = image.pngData() else {
+            print("Could convert edited image in raw data: \(String(describing: image.pngData()))")
+            return
+        }
+        UserDefaults.standard.set(data, forKey: "imageData")
     }
 }
